@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Properties>
+    <property>
+        <labels>
+            <label id="id">
+                <name>id</name>
+                <label>id</label>
+                <editor ref="texteditor">
+                    <event ref="resetcontrolid"/>
+                </editor>
+            </label>
+            
+            <label id="rcpname">
+                <name>rcpName</name>
+                <label>rcpName</label>
+                <editor ref="texteditor">
+                    <event ref="resetcontrolrcpname"/>
+                </editor>
+            </label>
+            
+            <label id="classname">
+                <name>classname</name>
+                <label>自定义样式</label>
+                <editor ref="classnameeditor"/>
+            </label>
+            
+            <label id="text">
+                <name>value</name>
+                <label>文本</label>
+                <editor ref="texteditor"/>
+            </label>
+            
+            <label id="rcpstyleposition">
+            	<name>position</name>
+            	<label>布局</label>
+            	<editor ref="comboxeditor">
+            		<event ref="positionoptions"/>
+            		<event ref="resetcontrolpositon"/>
+            	</editor>
+            </label>
+            
+            <label id="onclick">
+            	<name>onclick</name>
+            	<label>单击事件</label>
+            	<editor ref="customcomboxeditor"/>
+            </label>
+            
+            <label id="ondblclick">
+            	<name>ondblclick</name>
+            	<label>双击事件</label>
+            	<editor ref="customcomboxeditor"/>
+            </label>
+            
+            <label id="onmousemove">
+            	<name>onmousemove</name>
+            	<label>鼠标移动事件</label>
+            	<editor ref="customcomboxeditor"/>
+            </label>
+            
+            <label id="width">
+            	<name>width</name>
+            	<label>宽度</label>
+            	<editor ref="uniteditor"/>
+            	<data ref="dataunit"/>
+            </label>
+            
+            <label id="height">
+            	<name>height</name>
+            	<label>高度</label>
+            	<editor ref="uniteditor"/>
+            	<data ref="dataunit"/>
+            </label>
+            
+            <label id="fontfamily">
+            	<name>font-family</name>
+            	<label>字体</label>
+            	<editor ref="fontfamilyeditor"/>
+            	<data ref="datafontfaamily"/>
+            </label>
+            
+            <label id="fontsize">
+            	<name>font-size</name>
+            	<label>大小</label>
+            	<editor ref="fontsizeeditor"/>
+            	<data ref="datafontsize"/>
+            </label>
+            
+            <label id="fontstyle">
+            	<name>null</name>
+            	<label>样式</label>
+            	<editor ref="fontstyleeditor"/>
+            	<data ref="datafontstyle"/>
+            </label>
+            
+            <label id="fontcolor">
+            	<name>color</name>
+            	<label>颜色</label>
+            	<editor ref="coloreditor"/>
+            </label>
+            
+            <label id="border">
+            	<name>null</name>
+            	<label>边框</label>
+            	<editor ref="bordereditor"/>
+            	<data ref="databorder"/>
+            </label>
+            
+            <label id="padding">
+            	<name>null</name>
+            	<label>边距</label>
+            	<editor ref="paddingeditor"/>
+            </label>
+        </labels>
+
+        <editors>
+            <editor id="texteditor">
+                <classnamename>Rcp.PropertyTextEditor</classnamename>
+            </editor>
+            <editor id="classnameeditor">
+            	<classname>Rcp.PropertyclassnameTextEditor</classname>
+            	<desc/>
+            </editor>
+            <editor id="comboxeditor">
+            	<classname>Rcp.PropertyComboBoxEditor</classname>
+            	<desc/>
+            </editor>
+            <editor id="customcomboxeditor">
+            	<classname>Rcp.CustomComboBoxEditor</classname>
+            	<desc/>
+            </editor>
+            <editor id="uniteditor">
+            	<classname>Rcp.UnitStyleEditor</classname>
+            	<desc/>
+            </editor>
+            <editor id="fontsizeeditor">
+            	<classname>Rcp.PropertyFontSizeEditor</classname>
+            	<desc/>
+            </editor>
+            <editor id="fontstyleeditor">
+            	<classname>Rcp.PropertyFontStyleEditor</classname>
+            	<desc/>
+            </editor>
+            <editor id="coloreditor">
+            	<classname>Rcp.PropertyColorEditor</classname>
+            	<desc/>
+            </editor>
+            <editor id="bordereditor">
+            	<classname>Rcp.BorderStyleEditor</classname>
+            	<desc/>
+            </editor>
+            <editor id="paddingeditor">
+            	<classname>Rcp.EdgeStyleEditor</classname>
+            	<desc/>
+            </editor>
+        </editors>
+
+        <events>
+            <event id="resetcontrolid">
+                <valueChanged>resetControlID</valueChanged>
+            </event>
+            <event id="resetcontrolrcpname">
+                <valueChanged>resetControlRcpName</valueChanged>
+            </event>
+            <event id="resetcontrolpositon">
+                <valueChanged>resetControlPosition</valueChanged>
+            </event>
+            <event id="positionoptions">
+                <load>ctlPositionInfo</load>
+            </event>
+            <event id="datasourceoptions">
+                <click>initDataSource</click>
+                <args>${SID}Table</args>
+            </event>
+            <event id="datacolumnoptions">
+                <click>initDataColumns</click>
+                <args>${SID}Table</args>
+            </event>
+            <event id="datacolumnquery">
+                <load>observerDataColumns</load>
+                <args>$dataSource</args>
+            </event>
+            <event id="tableformat">
+                <valueChanged>resetTableStyle</valueChanged>
+            </event>
+        </events>
+
+        <datas>
+            <data id="dataunit">
+                <unit>
+                    <name>px</name>
+                    <value>px</value>
+                </unit>
+                <unit>
+                	<name>%</name>
+                	<value>百分比</value>
+                </unit>
+            </data>
+            <data id="datafontsize">
+                <fontsize>
+                    <name>12px</name>
+                    <value>12px</value>
+                </fontsize>
+                <fontsize>
+                    <name>14px</name>
+                    <value>14px</value>
+                </fontsize>
+            </data>
+            <data id="datafontstyle">
+                <fontstyle>
+                    <name>font-style</name>
+                    <value>italic</value>
+                </fontstyle>
+                <fontstyle>
+                    <name>font-weight</name>
+                    <value>bold</value>
+                </fontstyle>
+                <fontstyle>
+                    <name>text-align</name>
+                    <value>left</value>
+                </fontstyle>
+                <fontstyle>
+                    <name>text-align</name>
+                    <value>center</value>
+                </fontstyle>
+                <fontstyle>
+                    <name>text-align</name>
+                    <value>right</value>
+                </fontstyle>
+            </data>
+            <data id="datafontfaamily">
+            	<fontfamily>
+            		<name>'宋体'</name>
+            		<value>宋体</value>
+            	</fontfamily>
+            	<fontfamily>
+            		<name>arial</name>
+            		<value>arial</value>
+            	</fontfamily>
+            </data>
+            
+            <data id="databorder">
+            	<borderStyle>
+            		<option>
+            			<name>none</name>
+            			<value>*</value>
+            		</option>
+            		<option>
+            			<name>solid</name>
+            			<value>-</value>
+            		</option>
+            		<option>
+            			<name>dashed</name>
+            			<value>--</value>
+            		</option>
+            		<option>
+            			<name>dotted</name>
+            			<value>..</value>
+            		</option>
+            	</borderStyle>
+            	<borderUnit>
+            		<option>
+	                    <name>px</name>
+	                    <value>px</value>
+	                </option>
+	                <option>
+	                	<name>%</name>
+	                	<value>百分比</value>
+	                </option>
+            	</borderUnit>
+            </data>
+        </datas>
+        
+        <groups>
+            <group id="common">
+                <isGroup>true</isGroup>
+                <groupTitle>基础</groupTitle>
+                <hasLabel>true</hasLabel>
+                <labelWidth>70px</labelWidth>
+                <name>null</name>
+            </group>
+            <group id="rcpstyle">
+                <isGroup>true</isGroup>
+                <groupTitle>rcpStyle</groupTitle>
+                <hasLabel>true</hasLabel>
+                <labelWidth>70px</labelWidth>
+                <name>rcpStyle</name>
+            </group>
+            <group id="rcpevent">
+                <isGroup>true</isGroup>
+                <groupTitle>事件</groupTitle>
+                <hasLabel>true</hasLabel>
+                <labelWidth>70px</labelWidth>
+                <name>null</name>
+            </group>
+            <group id="controlposition">
+                <isGroup>true</isGroup>
+                <groupTitle>position</groupTitle>
+                <hasLabel>true</hasLabel>
+                <labelWidth>70px</labelWidth>
+                <name>null</name>
+            </group>
+            <group id="style">
+                <isGroup>true</isGroup>
+                <groupTitle>样式</groupTitle>
+                <hasLabel>true</hasLabel>
+                <labelWidth>70px</labelWidth>
+                <name>style</name>
+            </group>
+            <group id="position">
+                <isGroup>true</isGroup>
+                <groupTitle>定位</groupTitle>
+                <hasLabel>true</hasLabel>
+                <labelWidth>70px</labelWidth>
+                <name>null</name>
+            </group>
+            <group id="font">
+                <isGroup>true</isGroup>
+                <groupTitle>文字</groupTitle>
+                <hasLabel>true</hasLabel>
+                <labelWidth>70px</labelWidth>
+                <name>null</name>
+            </group>
+            <group id="border">
+                <isGroup>true</isGroup>
+                <groupTitle>边框</groupTitle>
+                <hasLabel>true</hasLabel>
+                <labelWidth>70px</labelWidth>
+                <name>null</name>
+            </group>
+            <group id="padding">
+                <isGroup>true</isGroup>
+                <groupTitle>边距</groupTitle>
+                <hasLabel>true</hasLabel>
+                <labelWidth>70px</labelWidth>
+                <name>null</name>
+            </group>
+            <group id="placehold">
+            	<isGroup>true</isGroup>
+            	<groupTitle>placehold</groupTitle>
+            	<hasLabel>true</hasLabel>
+            	<labelWidth>70px</labelWidth>
+            	<name>null</name>
+            </group>
+        </groups>
+    </property>
+    
+</Properties>

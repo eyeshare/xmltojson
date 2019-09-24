@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Properties>
+    <layout>
+        <group ref="common">
+            <children>
+                <label ref="id" />
+                <label ref="rcpname" />
+                <label ref="classname" />
+                <label ref="text" />
+            </children>
+        </group>
+        <group ref="rcpstyle">
+            <children>
+            	<group ref="controlposition">
+            		<children>
+            			<label ref="rcpstyleposition"/>
+            			<label ref="placehold"/>
+            		</children>
+            	</group>
+                <group ref="rcpevent">
+                    <children>
+                        <label ref="onclick"/>
+                        <label ref="ondblclick"/>
+                        <label ref="onmousemove"/>
+                    </children>
+                </group>
+            </children>
+        </group>
+        <group ref="style">
+            <children>
+            	<group ref="position">
+            		<children>
+            			<label ref="width"/>
+            			<label ref="height"/>
+            		</children>
+            	</group>
+            	<group ref="font">
+            		<children>
+            			<label ref="fontfamily"/>
+            			<label ref="fontsize"/>
+            			<label ref="fontstyle"/>
+            			<label ref="fontcolor"/>
+            		</children>
+            	</group>
+            	<group ref="border">
+            		<children>
+            			<label ref="border"/>
+            			<label ref="placehold"/>
+            		</children>
+            	</group>
+            	<group ref="padding">
+            		<children>
+            			<label ref="padding"/>
+            			<label ref="placehold"/>
+            		</children>
+            	</group>
+            </children>
+        </group>
+    </layout>
+</Properties>
